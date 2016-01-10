@@ -413,6 +413,21 @@
               <FileType>1</FileType>
               <FilePath>..\source\main.c</FilePath>
             </File>
+            <File>
+              <FileName>board_stm32f0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\board_stm32f0.c</FilePath>
+            </File>
+            <File>
+              <FileName>clockctrl_stm32f0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\clockctrl_stm32f0.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder_stm32f0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\encoder_stm32f0.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
