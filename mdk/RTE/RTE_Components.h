@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'SPL_17_Encoder_STM32F0' 
+ * Project: 'MA_P1_MotorController' 
  * Target:  'Target 1' 
  */
 

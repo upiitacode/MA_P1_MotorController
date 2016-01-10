@@ -10,7 +10,7 @@ void setToMaxSpeed(void);
  * Also enables the update interrupt for this timer
  * @param upToValue number of counts to issue and iterrupt
  */
-void timer_3_encoder_init();
+void timer_3_encoder_init(void);
 
 /**
  * Initialize Pin B1 as output
