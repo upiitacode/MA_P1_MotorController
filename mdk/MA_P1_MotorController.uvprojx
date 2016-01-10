@@ -438,6 +438,11 @@
               <FileType>1</FileType>
               <FilePath>..\source\delay.c</FilePath>
             </File>
+            <File>
+              <FileName>timer_stm32f0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\timer_stm32f0.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
