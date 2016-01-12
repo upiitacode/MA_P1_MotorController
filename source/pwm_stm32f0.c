@@ -30,6 +30,7 @@ void TIMER2_CH2_PWM_Init(int prescaler,int autoreload){
 	TIM_OC2Init(TIM2,&myTimerOC);
 	TIM_CCxCmd(TIM2,TIM_Channel_2,TIM_CCx_Enable);//enable CCP2
 	//start Timer
+	TIM_SetCompare2(TIM2,0);
 	TIM_Cmd(TIM2,ENABLE);//Counter enabled
 }
 
