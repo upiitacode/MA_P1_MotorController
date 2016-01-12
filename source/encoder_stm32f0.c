@@ -41,8 +41,8 @@ void timer_3_encoder_init(void){
 	TIM_EncoderInterfaceConfig(TIM3,TIM_EncoderMode_TI1,TIM_ICPolarity_Rising,TIM_ICPolarity_Rising);
 
 	//Interrupt configuration
-	//TIM_ITConfig(TIM3,TIM_IT_Update,ENABLE);
-	//NVIC_EnableIRQ(TIM3_IRQn);
+	TIM_ITConfig(TIM3,TIM_IT_Update,ENABLE);
+	NVIC_EnableIRQ(TIM3_IRQn);
 
 	//start timer
 	TIM_Cmd(TIM3,ENABLE);

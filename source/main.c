@@ -7,9 +7,12 @@
 #include "timer_stm32f0.h"
 #include "os_serial_stdio.h"
 #include "os_usart_stm32f0.h"
+#include "adc_stm32f0.h"
 
 unsigned int encoder_position=0;
 char inputBuffer[40];
+int turns_counter;
+
 
 int main(void){
 	//Set procesor speed
@@ -27,31 +30,29 @@ int main(void){
 	//Initialize serial
 	os_serial_init();
 	os_usart2_init(9600);
+	//Initialize adc
+	adc_poll_init();
 	//Start Thread switching
 	osKernelStart();
 	//User Application
+	float adc_reading;
 	os_usart2_puts("Hello, World\n");
 	while(1){
-		os_usart2_gets(inputBuffer);
-		os_serial_printf(os_usart2_puts,">>%s\n",inputBuffer);
-	}
-
-	while(1){
-		//Glow the led every 3 seconds aprox
+		adc_reading = adc_poll_read()*(100.0/4095);
 		encoder_position=TIM_GetCounter(TIM3);
-		for(int i=0; i<100; i++){
-			TIMER2_CH2_PWM_SetDutyCycle(i,myAutorreload);
-		}
+		
+		os_serial_printf(os_usart2_puts,">>%d\n",turns_counter);
+		TIMER2_CH2_PWM_SetDutyCycle((unsigned int) adc_reading,myAutorreload);
+		osDelay(200);
 	}
 }
 
-int update_counter;
 
 void TIM3_IRQHandler(void){
 	if(TIM_GetITStatus(TIM3,TIM_IT_Update)){
 		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
 		//GPIO_WriteBit(GPIOB,GPIO_Pin_1,!GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_1));//toggles led
-		update_counter++;
+		turns_counter++;
 	}
 }
 
