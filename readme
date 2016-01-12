@@ -1,0 +1,7 @@
+PIN Description
+PA6 ADC input
+PA2 USART2 TX
+PA3 USART2 RX
+PB3 PWM output
+PB4 Encoder Channel A
+PB5 Encoder Channel B
